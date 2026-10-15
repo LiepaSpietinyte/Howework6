@@ -25,7 +25,9 @@ def parse_and_clean(line):
 #3dalis
 
 corrupted_lines = 0
-with open("environmental_raw.txt", "r") as inputfile, open("environmental_clean.csv", "w") as outputfile:
+input_file = "environmental_raw.txt"
+output_file = "environmental_clean.csv"
+with open(input_file, "r") as inputfile, open(output_file, "w") as outputfile:
 
     writer = csv.writer(outputfile)
     
@@ -38,5 +40,5 @@ with open("environmental_raw.txt", "r") as inputfile, open("environmental_clean.
         clean_line[2] = celsius_converter(float(clean_line[2]))
         writer.writerow(clean_line)
 
-    print (f"There were {corrupted_lines} corrupted lines.")
+print (f"There were {corrupted_lines} corrupted lines.")
     
